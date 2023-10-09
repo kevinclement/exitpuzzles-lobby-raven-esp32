@@ -1,0 +1,115 @@
+<!--Pololu Maestro servo controller settings file, http://www.pololu.com/catalog/product/1350-->
+<UscSettings version="1">
+  <NeverSuspend>false</NeverSuspend>
+  <SerialMode>UART_FIXED_BAUD_RATE</SerialMode>
+  <FixedBaudRate>9600</FixedBaudRate>
+  <SerialTimeout>0</SerialTimeout>
+  <EnableCrc>false</EnableCrc>
+  <SerialDeviceNumber>12</SerialDeviceNumber>
+  <SerialMiniSscOffset>0</SerialMiniSscOffset>
+  <Channels MiniMaestroServoPeriod="80000" ServoMultiplier="1">
+    <!--Period = 20 ms-->
+    <!--Channel 0-->
+    <Channel name="Hip" mode="Servo" min="5632" max="7232" homemode="Off" home="5632" speed="0" acceleration="3" neutral="6000" range="1905" />
+    <!--Channel 1-->
+    <Channel name="Head Up/Down" mode="Servo" min="4416" max="8000" homemode="Off" home="4416" speed="0" acceleration="5" neutral="6000" range="1905" />
+    <!--Channel 2-->
+    <Channel name="Head Side" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="5" neutral="6000" range="1905" />
+    <!--Channel 3-->
+    <Channel name="Wings" mode="Servo" min="5184" max="6016" homemode="Off" home="5184" speed="0" acceleration="4" neutral="6000" range="1905" />
+    <!--Channel 4-->
+    <Channel name="Beak" mode="Servo" min="6208" max="7296" homemode="Off" home="6208" speed="0" acceleration="10" neutral="6208" range="1905" />
+    <!--Channel 5-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 6-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 7-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 8-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 9-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 10-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="0" neutral="6000" range="1905" />
+    <!--Channel 11-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Off" home="3968" speed="0" acceleration="0" neutral="6000" range="1905" />
+  </Channels>
+  <Sequences>
+    <Sequence name="Sequence 0">
+      <Frame name="neutral" duration="3000">6447 6190 5944 6016 7162 0 0 0 0 0 0 0</Frame>
+      <Frame name="look L" duration="1500">6447 7199 7412 6016 7162 0 0 0 0 0 0 0</Frame>
+      <Frame name="Look R, lift up" duration="2000">5632 4416 4359 6016 7162 0 0 0 0 0 0 0</Frame>
+      <Frame name="down caw" duration="500">6773 8000 5533 5184 6208 0 0 0 0 0 0 0</Frame>
+      <Frame name="close" duration="1500">6470 6729 6923 5765 7259 0 0 0 0 0 0 0</Frame>
+      <Frame name="caw again" duration="1000">6773 8000 4946 5184 6208 0 0 0 0 0 0 0</Frame>
+      <Frame name="look R,body neutral" duration="1000">6261 4624 5024 6016 7193 0 0 0 0 0 0 0</Frame>
+      <Frame name="look L, wing up" duration="1500">5989 6468 7334 5587 7193 0 0 0 0 0 0 0</Frame>
+      <Frame name="body up, wing down" duration="2500">5632 5303 5651 6016 7193 0 0 0 0 0 0 0</Frame>
+      <Frame name="caw" duration="500">6525 8000 5005 5184 6208 0 0 0 0 0 0 0</Frame>
+      <Frame name="close" duration="2000">6051 6555 7236 6016 7296 0 0 0 0 0 0 0</Frame>
+    </Sequence>
+  </Sequences>
+  <Script ScriptDone="false"># Sequence 0
+begin
+  3000 6447 6190 5944 6016 7161 0 
+  0 0 0 0 0 0 frame_0..11 # neutral
+  1500 7199 7412 frame_1_2 # look L
+  2000 5632 4416 4359 frame_0..2 # Look R, lift up
+  500 6773 8000 5533 5184 6055 frame_0..4 # down caw
+  1500 6470 6729 6923 5765 7259 frame_0..4 # close
+  1000 6773 8000 4946 5184 6055 frame_0..4 # caw again
+  1000 6261 4624 5024 6016 7193 frame_0..4 # look R,body neutral
+  1500 5989 6468 7334 5587 frame_0..3 # look L, wing up
+  2500 5632 5303 5651 6016 frame_0..3 # body up, wing down
+  500 6525 8000 5005 5184 6055 frame_0..4 # caw
+  2000 6051 6555 7236 6016 7296 frame_0..4 # close
+repeat
+
+sub frame_0..11
+  11 servo
+  10 servo
+  9 servo
+  8 servo
+  7 servo
+  6 servo
+  5 servo
+  4 servo
+  3 servo
+  2 servo
+  1 servo
+  0 servo
+  delay
+  return
+
+sub frame_1_2
+  2 servo
+  1 servo
+  delay
+  return
+
+sub frame_0..2
+  2 servo
+  1 servo
+  0 servo
+  delay
+  return
+
+sub frame_0..4
+  4 servo
+  3 servo
+  2 servo
+  1 servo
+  0 servo
+  delay
+  return
+
+sub frame_0..3
+  3 servo
+  2 servo
+  1 servo
+  0 servo
+  delay
+  return
+
+</Script>
+</UscSettings>
