@@ -29,17 +29,17 @@ void Sound::handle() {
     audio.loop();
 }
 
-void Sound::playMail() {
-    audio.connecttoFS(SPIFFS, "003-youve-got-mail.wav");
-}
+// void Sound::playMail() {
+//     audio.connecttoFS(SPIFFS, "003-youve-got-mail.wav");
+// }
 
-void Sound::playJetsons() {
-    audio.connecttoFS(SPIFFS, "002-jetsons.mp3");
-}
+// void Sound::playJetsons() {
+//     audio.connecttoFS(SPIFFS, "002-jetsons.mp3");
+// }
 
-void Sound::playWorms() {
-    audio.connecttoFS(SPIFFS, "001-worms-incoming.mp3");
-}
+// void Sound::playWorms() {
+//     audio.connecttoFS(SPIFFS, "001-worms-incoming.mp3");
+// }
 
 bool Sound::isPlaying() {
     return audio.isRunning();

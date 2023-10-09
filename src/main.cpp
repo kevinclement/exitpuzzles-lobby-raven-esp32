@@ -1,18 +1,40 @@
 #include <Arduino.h>
+#include "logic.h"
 
-// put function declarations here:
-int myFunction(int, int);
+Logic logic;
+
+void readAnySerialMessage() {
+	if (!Serial.available()) {
+    	return;
+  	}
+
+	// read and handle message from serial
+	String msg = Serial.readStringUntil('\n');
+	Serial.print("got '");
+	Serial.print(msg);
+	Serial.println("' command");
+
+	if (msg == "reset" || msg == "reboot" || msg == "r") {
+    	logic.reset();
+	} else if (msg == "status" || msg == "s") {
+  	  logic.status();
+	} else {
+    	Serial.print("unknown command: ");
+    	Serial.println(msg);
+ 	}
+}
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+	Serial.begin(115200);
+	Serial.setTimeout(10);
+	Serial.println("READY");
+	Serial.println("Raven by kevinc...\n");
+
+	logic.setup();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+	readAnySerialMessage();
+  	logic.handle();
+	delay(15);
 }
