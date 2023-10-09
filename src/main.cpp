@@ -22,6 +22,10 @@ void readAnySerialMessage() {
   	  logic.sound.playRaven("crow1.wav");
 	} else if (msg == "2") {
   	  logic.sound.playRaven("crow2.wav");
+	} else if (msg == "3") {
+  	  logic.sound.playRaven("crow3.wav");
+	} else if (msg == "4") {
+  	  logic.sound.playRaven("crow4.wav");	  
 	} else {
     	Serial.print("unknown command: ");
     	Serial.println(msg);
