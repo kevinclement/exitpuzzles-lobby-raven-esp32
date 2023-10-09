@@ -11,11 +11,7 @@ void Logic::setup() {
 }
 
 void Logic::handle() {
-  sound.handle();  
-}
-
-void Logic::trigger() {
-		Serial.println("Triggering device...");
+  sound.handle();
 }
 
 void Logic::status() {

@@ -18,6 +18,10 @@ void readAnySerialMessage() {
     	logic.reset();
 	} else if (msg == "status" || msg == "s") {
   	  logic.status();
+	} else if (msg == "1") {
+  	  logic.sound.playRaven("crow1.wav");
+	} else if (msg == "2") {
+  	  logic.sound.playRaven("crow2.wav");
 	} else {
     	Serial.print("unknown command: ");
     	Serial.println(msg);

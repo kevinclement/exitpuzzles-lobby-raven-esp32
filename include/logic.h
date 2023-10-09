@@ -12,7 +12,6 @@ public:
 
   void setup();
   void handle();
-  void trigger();
   void status();
   void reset();
   

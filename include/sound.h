@@ -8,9 +8,7 @@ class Sound {
     Sound(Logic &logic);
     void setup();
     void handle();
-    // void playMail();
-    // void playJetsons();
-    // void playWorms();
+    void playRaven(const char * fName);
     bool isPlaying();
     
   private:
