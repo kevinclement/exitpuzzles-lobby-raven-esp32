@@ -2,13 +2,13 @@
 
 #include "Arduino.h"
 #include "sound.h"
-
-// enum State { WAITING, STARTING, DROPPING, SETTLING, ALERTING, DONE };
+#include "cawDetect.h"
 
 class Logic {
 public:
   Logic();
   Sound sound;
+  CawDetect cawDetect;
 
   void setup();
   void handle();

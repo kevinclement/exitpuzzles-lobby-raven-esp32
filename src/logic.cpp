@@ -2,16 +2,19 @@
 #include "logic.h"
 
 Logic::Logic()
-  : sound(*this)
+  : sound(*this),
+    cawDetect(*this)
 {
 }
 
 void Logic::setup() {
   sound.setup();
+  cawDetect.setup();
 }
 
 void Logic::handle() {
   sound.handle();
+  cawDetect.handle();
 }
 
 void Logic::status() {
