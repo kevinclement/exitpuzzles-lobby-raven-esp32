@@ -16,5 +16,5 @@ public:
   void reset();
   
 private:
-  
+  bool handledCaw = false;
 };

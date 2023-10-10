@@ -17,15 +17,19 @@ void readAnySerialMessage() {
 	if (msg == "reset" || msg == "reboot" || msg == "r") {
     	logic.reset();
 	} else if (msg == "status" || msg == "s") {
-  	  logic.status();
+  	  	logic.status();
 	} else if (msg == "1") {
-  	  logic.sound.playRaven("crow1.wav");
+		Serial.println("Playing crow1.wav...");
+		logic.sound.playRaven("crow1.wav");
 	} else if (msg == "2") {
-  	  logic.sound.playRaven("crow2.wav");
+		Serial.println("Playing crow2.wav...");
+  	  	logic.sound.playRaven("crow2.wav");
 	} else if (msg == "3") {
-  	  logic.sound.playRaven("crow3.wav");
+		Serial.println("Playing crow3.wav...");
+  	  	logic.sound.playRaven("crow3.wav");
 	} else if (msg == "4") {
-  	  logic.sound.playRaven("crow4.wav");	  
+		Serial.println("Playing crow4.wav...");
+  	  	logic.sound.playRaven("crow4.wav");	  
 	} else {
     	Serial.print("unknown command: ");
     	Serial.println(msg);

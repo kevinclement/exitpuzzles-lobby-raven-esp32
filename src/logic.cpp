@@ -15,6 +15,20 @@ void Logic::setup() {
 void Logic::handle() {
   sound.handle();
   cawDetect.handle();
+
+  if (!handledCaw && cawDetect.cawed) {
+    Serial.println("CAW detected.  Playing audio...");
+    handledCaw = true;
+    
+    // Play caw audio file
+    sound.playRaven("crow1.wav");
+  }
+
+  // Once we've handled the caw and it's signal fell back down
+  // reset our state
+  if (handledCaw && !cawDetect.cawed) {
+    handledCaw = false;
+  }
 }
 
 void Logic::status() {

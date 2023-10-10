@@ -8,6 +8,8 @@ class CawDetect {
     CawDetect(Logic &logic);
     void setup();
     void handle();
+
+    bool cawed = false;
     
   private:
     Logic &_logic;
